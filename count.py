@@ -107,12 +107,6 @@ def init_parser():
     
     parser.add_argument('--re_r1', default=0.3, type=float, help='aspect of erasing area')
     
-    parser.add_argument('--is_GMM', action='store_true', help='Gaussian Mixture Attention')
-
-    parser.add_argument('--is_SLM', action='store_true', help='Element-wise Simple Learnable Mask')
-    
-    parser.add_argument('--num_kernals', default=5, type=int, help='Gaussian Mixture Attention kernal number')
-
     return parser
 
 

@@ -102,12 +102,6 @@ def init_parser():
     
     parser.add_argument('--re_r1', default=0.3, type=float, help='aspect of erasing area')
     
-    parser.add_argument('--is_GMM', action='store_true', help='Gaussian Mixture Attention')
-
-    parser.add_argument('--is_SLM', action='store_true', help='Element-wise Simple Learnable Mask')
-    
-    parser.add_argument('--num_kernals', default=5, type=int, help='Gaussian Mixture Attention kernal number')
-
     return parser
 
 def main(args):
@@ -443,14 +437,7 @@ if __name__ == '__main__':
     
     model_name = args.model
 
-    if args.is_GMM:
-        model_name += "-GMM"
-        model_name += 'n'+str(args.num_kernals)
-    elif args.is_SLM:
-        model_name += "-SLM"
-    else:
-        model_name += "-Base"
- 
+    model_name += "-Base" 
         
     model_name += f"-{args.tag}-{args.dataset}-LR[{args.lr}]-Seed{args.seed}"
     save_path = os.path.join(os.getcwd(), 'save', model_name)

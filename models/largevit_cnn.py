@@ -1,8 +1,10 @@
 import torch
-from torch import nn, einsum
+from torch import nn
+import torch.nn.functional as F
 from utils.drop_path import DropPath
-from einops import rearrange, repeat
+from einops import rearrange
 from einops.layers.torch import Rearrange
+
 # helpers
  
 def pair(t):
@@ -57,8 +59,12 @@ class Attention(nn.Module):
         self.dim = dim
         self.inner_dim = inner_dim
         self.attend = nn.Softmax(dim = -1)
-        self.to_qkv = nn.Linear(self.dim, self.inner_dim * 3, bias = False)
-        init_weights(self.to_qkv)
+        # self.to_qkv = nn.Linear(self.dim, self.inner_dim * 3, bias = False)
+        # init_weights(self.to_qkv)
+
+        self.to_v = nn.Linear(self.dim, self.inner_dim, bias = False)
+        init_weights(self.to_v)
+
         self.to_out = nn.Sequential(
             nn.Linear(self.inner_dim, self.dim),
             nn.Dropout(dropout)
@@ -66,23 +72,17 @@ class Attention(nn.Module):
             
         self.mask = None
 
+        self.patching_size = int(num_patches ** 0.5) * 2 - 1
+        self.dynamicqk = nn.Parameter(torch.zeros(1, 1, self.patching_size, self.patching_size), requires_grad=True)
+
     def forward(self, x):
         b, n, _, h = *x.shape, self.heads
-        qkv = self.to_qkv(x).chunk(3, dim = -1)
-        q, k, v = map(lambda t: rearrange(t, 'b n (h d) -> b h n d', h = h), qkv)
 
-        if self.mask is None:
-            dots = einsum('b h i d, b h j d -> b h i j', q, k) * self.scale
+        v = self.to_v(x)
+        v = rearrange(v, 'b (i j) d -> (b d) 1 i j', i = int(n ** 0.5))
+        out = F.conv2d(v, self.dynamicqk, padding=int(n ** 0.5) - 1)
+        out = rearrange(out, '(b d) 1 i j -> b (i j) d', b = b)
         
-        else:
-            scale = self.scale
-            dots = torch.mul(einsum('b h i d, b h j d -> b h i j', q, k), scale.unsqueeze(0).unsqueeze(-1).unsqueeze(-1).expand((b, h, 1, 1)))
-            dots[:, :, self.mask[:, 0], self.mask[:, 1]] = -987654321
-
-        attn = self.attend(dots)
-        out = einsum('b h i j, b h j d -> b h i d', attn, v) 
-            
-        out = rearrange(out, 'b h n d -> b n (h d)')
         return self.to_out(out)
     
     def flops(self):
@@ -114,7 +114,7 @@ class Transformer(nn.Module):
             self.scale[str(i)] = attn.fn.scale
         return x
 
-class ViT(nn.Module):
+class Large_ViT_cnn(nn.Module):
     def __init__(self, *, img_size, patch_size, num_classes, dim, depth, heads, mlp_dim_ratio, channels = 3, 
                  dim_head = 16, dropout = 0., emb_dropout = 0., stochastic_depth=0.):
         super().__init__()
@@ -130,7 +130,8 @@ class ViT(nn.Module):
             nn.Linear(self.patch_dim, self.dim)
         )
              
-        self.pos_embedding = nn.Parameter(torch.randn(1, self.num_patches + 1, self.dim))
+        # self.pos_embedding = nn.Parameter(torch.randn(1, self.num_patches + 1, self.dim))
+        self.pos_embedding = nn.Parameter(torch.randn(1, self.num_patches, self.dim))
             
         self.cls_token = nn.Parameter(torch.randn(1, 1, self.dim))
         self.dropout = nn.Dropout(emb_dropout)
@@ -151,12 +152,15 @@ class ViT(nn.Module):
             
         b, n, _ = x.shape
         
-        cls_tokens = repeat(self.cls_token, '() n d -> b n d', b = b)
+        # cls_tokens = repeat(self.cls_token, '() n d -> b n d', b = b)
       
-        x = torch.cat((cls_tokens, x), dim=1)
-        x += self.pos_embedding[:, :(n + 1)]
+        # x = torch.cat((cls_tokens, x), dim=1)
+        # x += self.pos_embedding[:, :(n + 1)]
+ 
+
+        x += self.pos_embedding[:, : n]
         x = self.dropout(x)
 
-        x = self.transformer(x)      
+        x = self.transformer(x)     
         
-        return self.mlp_head(x[:, 0])
+        return self.mlp_head(x.mean(dim=1))

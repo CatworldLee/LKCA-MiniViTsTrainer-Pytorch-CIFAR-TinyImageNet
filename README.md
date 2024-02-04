@@ -106,3 +106,20 @@ Next, you will need to import and register your model within the `create_model.p
 elif args.model == 'model name':
     model = Your_Model(**kargs)
 ```
+
+## Acknowledgements
+
+We would like to express our great appreciation to the code authors of the [pytorch-image-models](https://github.com/huggingface/pytorch-image-models) and [Vision Transformer for Small-Size Datasets](https://github.com/aanna0701/SPT_LSA_ViT) repositories, for their great help to the machine learning community.
+
+## Citation
+
+If you would like to cite this work, you can use the following citation format:
+
+```bibtex
+@article{li2024lkca,
+title={LKCA: Large Kernel Convolutional Attention},
+author={Li, Chenghao and Zeng, Boheng and Lu, Yi and Shi, Pengbo and Chen, Qingzi and Liu, Jirui and Zhu, Lingyun},
+journal={arXiv preprint arXiv:2401.05738},
+year={2024}
+}
+```

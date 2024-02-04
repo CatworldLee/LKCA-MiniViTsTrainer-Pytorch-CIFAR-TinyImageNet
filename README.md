@@ -8,15 +8,11 @@ Welcome to the official GitHub repository for LKCA! This repository is designed 
 
 As the official repository for LKCA, we offer a suite of tools and libraries to support the development of machine learning and artificial intelligence projects. Whether you're looking for the latest research findings or reliable code implementations, this is your go-to starting point.
 
-### 2. Train Various ViTs on Small Datasets with Just a GPU or CPU 💻
+### 2. Train Various ViTs on Small Datasets with Just a single GPU 💻
 
-This repository emphasizes machine learning practices in resource-constrained environments, specifically training various Vision Transformers (ViTs) on small datasets. We understand that not everyone has access to large-scale computational resources, so we provide optimized algorithms and practical advice for effective training with just a single GPU or CPU. Our goal is to lower the entry barrier, enabling more people to innovate and research with the latest technologies.
+This repository emphasizes machine learning practices in resource-constrained environments, specifically training various Vision Transformers (ViTs) on small datasets. We understand that not everyone has access to large-scale computational resources, so we provide optimized algorithms and practical advice for effective training with just a single GPU. Our goal is to lower the entry barrier, enabling more people to innovate and research with the latest technologies.
 
-### Train a Vision Transformer on a 2080Ti in Just 4 Hours
-
-Efficient training of machine learning models on accessible hardware is a critical need for researchers and developers with limited resources. This repository enables practical training of Vision Transformer (ViT) models from scratch on a single 2080Ti GPU within just four hours. It's a step towards making advanced AI models more accessible to a broader audience.
-
-### Train a Vision Transformer on a 2080Ti in Just 4 Hours 🕓
+#### Train a Vision Transformer on a 2080Ti in Just 4 Hours 🕓
 
 Efficient training of machine learning models on accessible hardware is a critical need for researchers and developers with limited resources. This repository enables practical training of Vision Transformer (ViT) models from scratch on a single 2080Ti GPU within just four hours 🚀. It's a step towards making advanced AI models more accessible to a broader audience.
 

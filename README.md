@@ -1,4 +1,4 @@
-# LKCA Official Repository :octocat:
+# LKCA Official Repository/Mini ViTs Trainer :octocat:
 
 
 Welcome to the official GitHub repository for LKCA! This repository is designed to be a centralized resource for developers, researchers, and tech enthusiasts to explore and implement the cutting-edge in machine learning technology. We focus on providing high-quality code, pre-trained models, and comprehensive documentation to help you leverage state-of-the-art technologies across various applications. 🚀

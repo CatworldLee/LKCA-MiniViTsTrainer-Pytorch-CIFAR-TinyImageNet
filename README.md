@@ -34,9 +34,11 @@ Welcome to our repository! Before diving into training Vision Transformers (ViTs
 
 ## Requirements 📋
 
-To get started, you'll need to install the required Python packages. This can be easily done using `pip` and the provided `requirements.txt` file. Run the following command in your terminal:
+To get started, you'll need to install the required Python packages. We recommend creating a new `conda` environment and then using `pip` to install the provided `requirements.txt` packages. Follow these steps in your terminal:
 
 ```bash
+conda create --name myenv python=3.8
+conda activate myenv
 pip install -r requirements.txt
 ```
 

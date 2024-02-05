@@ -1,5 +1,6 @@
 # LKCA Official Repository :octocat:
 
+
 Welcome to the official GitHub repository for LKCA! This repository is designed to be a centralized resource for developers, researchers, and tech enthusiasts to explore and implement the cutting-edge in machine learning technology. We focus on providing high-quality code, pre-trained models, and comprehensive documentation to help you leverage state-of-the-art technologies across various applications. 🚀
 
 ## What You Can Do with This Repository
@@ -107,11 +108,48 @@ elif args.model == 'model name':
     model = Your_Model(**kargs)
 ```
 
-## Acknowledgements
+# Experimental Results
+
+The table below presents the experimental results of various models on the Tiny-ImageNet dataset, including model accuracy, the number of parameters, and floating-point operations (Flops).
+
+| Model             | Tiny-ImageNet Accuracy (%) | # Parameters | Flops     |
+|-------------------|---------------------------|--------------|-----------|
+| [T2T-T](https://arxiv.org/abs/2101.11986)        | 53.92                     | 1.07M        | 78.23M    |
+| [RvT-T](https://arxiv.org/abs/2104.09864)        | 50.65                     | 1.10M        | 57.61M    |
+| [Swin-T](https://arxiv.org/abs/2103.14030)       | 54.93                     | 1.06M        | 38.90M    |
+| [CaiT-T](https://arxiv.org/abs/2103.17239)       | 54.76                     | 1.03M        | 61.85M    |
+| [XCiT-T](https://arxiv.org/abs/2106.09681)       | 56.78                     | 0.96M        | 51.44M    |
+| [ViT-Lite](https://openreview.net/pdf?id=YicbFdNTTy)     | 53.46                     | 1.11M        | 69.64M    |
+| [DeepViT-T](https://arxiv.org/abs/2103.11886)    | 34.64                     | 0.99M        | 62.96M    |
+| [RegionViT-T](https://arxiv.org/abs/2106.02689)  | 54.32                     | 0.97M        | 29.38M    |
+| [CrossViT-T](https://arxiv.org/abs/2103.14899)   | 47.03                     | 1.04M        | 57.59M    |
+| [LKCA-T](https://arxiv.org/abs/2401.05738)       | 57.29                     | 1.07M        | 66.10M    |
+| [T2T-S](https://arxiv.org/abs/2101.11986)      | 41.25                     | 2.56M        | 52.96M    |
+| [RvT-S](https://arxiv.org/abs/2104.09864)      | 55.51                     | 2.72M        | 145.09M   |
+| [Swin-S](https://arxiv.org/abs/2103.14030)     | 58.61                     | 2.93M        | 95.55M    |
+| [CaiT-S](https://arxiv.org/abs/2103.17239)     | 59.21                     | 2.77M        | 164.46M   |
+| [XCiT-S](https://arxiv.org/abs/2106.09681)     | 60.09                     | 2.81M        | 157.54M   |
+| [ViT-Small](https://openreview.net/pdf?id=YicbFdNTTy)  | 55.74                     | 2.76M        | 176.06M   |
+| [DeepViT-S](https://arxiv.org/abs/2103.11886)  | 44.45                     | 2.54M        | 162.85M   |
+| [Twins SVT-S](https://arxiv.org/abs/2104.13840)| 37.13                     | 2.76M        | 197.00M   |
+| [RegionViT-S](https://arxiv.org/abs/2106.02689)| 53.96                     | 2.86M        | 53.82M    |
+| [CrossViT-S](https://arxiv.org/abs/2103.14899) | 52.70                     | 2.40M        | 126.11M   |
+| [LKCA-B](https://arxiv.org/abs/2401.05738)     | 60.95                     | 2.76M        | 172.78M   |
+| [T2T-B](https://arxiv.org/abs/2101.11986)      | 58.46                     | 13.45M       | 853.02M   |
+| [CvT-B](https://arxiv.org/pdf/your_paper21.pdf)      | 55.88                     | 6.52M        | 102.56M   |
+| [MobileViTv2](https://arxiv.org/abs/2206.02680) | 58.28                     | 8.17M        | 189.77M   |
+| [Twins SVT-B](https://arxiv.org/abs/2104.13840)| 49.24                     | 9.04M        | 308.74M   |
+| [RegionViT-B](https://arxiv.org/abs/2106.02689)| 57.83                     | 12.39M       | 195.02M   |
+| [LKCA-L](https://arxiv.org/abs/2401.05738)     | 63.43                     | 12.65M       | 802.99M   |
+
+For more experimental data and details, please refer to the preprint paper [LKCA: Large Kernel Convolutional Attention](https://arxiv.org/pdf/2401.05738.pdf).
+
+
+# Acknowledgements
 
 We would like to express our great appreciation to the code authors of the [pytorch-image-models](https://github.com/huggingface/pytorch-image-models) and [Vision Transformer for Small-Size Datasets](https://github.com/aanna0701/SPT_LSA_ViT) repositories, for their great help to the machine learning community.
 
-## Citation
+# Citation
 
 If you would like to cite this work, you can use the following citation format:
 

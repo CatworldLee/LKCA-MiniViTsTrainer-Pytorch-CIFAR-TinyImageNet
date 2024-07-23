@@ -1,15 +1,11 @@
-# LKCA Official Repository/Mini ViTs Trainer :octocat:
+# Mini ViTs Trainer :octocat:
 
 
-Welcome to the official GitHub repository for LKCA! This repository is designed to be a centralized resource for developers, researchers, and tech enthusiasts to explore and implement the cutting-edge in machine learning technology. We focus on providing high-quality code, pre-trained models, and comprehensive documentation to help you leverage state-of-the-art technologies across various applications. 🚀
+Welcome to the Mini ViTs Trainer! This repository is designed to be a centralized resource for developers, researchers, and tech enthusiasts to explore and implement the cutting-edge in machine learning technology. We focus on providing high-quality code, pre-trained models, and comprehensive documentation to help you leverage state-of-the-art technologies across various applications. 🚀
 
 ## What You Can Do with This Repository
 
-### 1. Official Repository of LKCA :books:
-
-As the official repository for LKCA, we offer a suite of tools and libraries to support the development of machine learning and artificial intelligence projects. Whether you're looking for the latest research findings or reliable code implementations, this is your go-to starting point.
-
-### 2. Train Various ViTs on Small Datasets with Just a single GPU 💻
+### 1. Train Various ViTs on Small Datasets with Just a single GPU 💻
 
 This repository emphasizes machine learning practices in resource-constrained environments, specifically training various Vision Transformers (ViTs) on small datasets. We understand that not everyone has access to large-scale computational resources, so we provide optimized algorithms and practical advice for effective training with just a single GPU. Our goal is to lower the entry barrier, enabling more people to innovate and research with the latest technologies.
 
@@ -60,7 +56,7 @@ CUDA_VISIBLE_DEVICES={0-7} python train.py --model {model name} --dataset {datas
 
 You can specify one of the following model names using the `--model` parameter:
 
-`vit`, `vit-lkca`, `mbv2`, `swin-s`, `swin-t`, `cait-s`, `cait-t`, `t2t-b`, `cvt-b`, `deepvit-t`, `deepvit-s`, `rvt-s`, `rvt-t`, `regionvit-b`, `crossvit-t`, `crossvit-s`, `xcit-s`, `xcit-t`, `twinssvt-b`, `twinssvt-s`
+`vit`, `mbv2`, `swin-s`, `swin-t`, `cait-s`, `cait-t`, `t2t-b`, `cvt-b`, `deepvit-t`, `deepvit-s`, `rvt-s`, `rvt-t`, `regionvit-b`, `crossvit-t`, `crossvit-s`, `xcit-s`, `xcit-t`, `twinssvt-b`, `twinssvt-s`
 
 Each model offers unique configurations and capabilities, ranging from standard ViT models to specialized architectures like MobileViT, Swin Transformer, and more.
 
@@ -125,7 +121,6 @@ The table below presents the experimental results of various models on the Tiny-
 | [DeepViT-T](https://arxiv.org/abs/2103.11886)    | 34.64                     | 0.99M        | 62.96M    |
 | [RegionViT-T](https://arxiv.org/abs/2106.02689)  | 54.32                     | 0.97M        | 29.38M    |
 | [CrossViT-T](https://arxiv.org/abs/2103.14899)   | 47.03                     | 1.04M        | 57.59M    |
-| [LKCA-T](https://arxiv.org/abs/2401.05738)       | 57.29                     | 1.07M        | 66.10M    |
 | [T2T-S](https://arxiv.org/abs/2101.11986)      | 41.25                     | 2.56M        | 52.96M    |
 | [RvT-S](https://arxiv.org/abs/2104.09864)      | 55.51                     | 2.72M        | 145.09M   |
 | [Swin-S](https://arxiv.org/abs/2103.14030)     | 58.61                     | 2.93M        | 95.55M    |
@@ -136,30 +131,8 @@ The table below presents the experimental results of various models on the Tiny-
 | [Twins SVT-S](https://arxiv.org/abs/2104.13840)| 37.13                     | 2.76M        | 197.00M   |
 | [RegionViT-S](https://arxiv.org/abs/2106.02689)| 53.96                     | 2.86M        | 53.82M    |
 | [CrossViT-S](https://arxiv.org/abs/2103.14899) | 52.70                     | 2.40M        | 126.11M   |
-| [LKCA-B](https://arxiv.org/abs/2401.05738)     | 60.95                     | 2.76M        | 172.78M   |
 | [T2T-B](https://arxiv.org/abs/2101.11986)      | 58.46                     | 13.45M       | 853.02M   |
 | [CvT-B](https://arxiv.org/pdf/your_paper21.pdf)      | 55.88                     | 6.52M        | 102.56M   |
 | [MobileViTv2](https://arxiv.org/abs/2206.02680) | 58.28                     | 8.17M        | 189.77M   |
 | [Twins SVT-B](https://arxiv.org/abs/2104.13840)| 49.24                     | 9.04M        | 308.74M   |
 | [RegionViT-B](https://arxiv.org/abs/2106.02689)| 57.83                     | 12.39M       | 195.02M   |
-| [LKCA-L](https://arxiv.org/abs/2401.05738)     | 63.43                     | 12.65M       | 802.99M   |
-
-For more experimental data and details, please refer to the preprint paper [LKCA: Large Kernel Convolutional Attention](https://arxiv.org/pdf/2401.05738.pdf).
-
-
-# Acknowledgements
-
-We would like to express our great appreciation to the code authors of the [pytorch-image-models](https://github.com/huggingface/pytorch-image-models) and [Vision Transformer for Small-Size Datasets](https://github.com/aanna0701/SPT_LSA_ViT) repositories, for their great help to the machine learning community.
-
-# Citation
-
-If you would like to cite this work, you can use the following citation format:
-
-```bibtex
-@article{li2024lkca,
-title={LKCA: Large Kernel Convolutional Attention},
-author={Li, Chenghao and Zeng, Boheng and Lu, Yi and Shi, Pengbo and Chen, Qingzi and Liu, Jirui and Zhu, Lingyun},
-journal={arXiv preprint arXiv:2401.05738},
-year={2024}
-}
-```
